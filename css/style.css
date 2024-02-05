@@ -1,0 +1,152 @@
+/* index */
+body.index{
+    background-image: url(../images/index.jpg);
+}
+
+div.index{
+    right: 10%;
+    left: 10%;
+    bottom: 15%;
+    border: solid 1px lightgray;
+    overflow: auto;
+    max-height: 400px;
+    min-height: 400px;
+    position: absolute;
+}
+
+button.index{
+    width: 5%;
+    bottom: 10%;
+    right: 10%;
+    position: absolute;
+    background-color: lightblue;
+    border: 1px solid white !important;
+}
+
+header.index{
+    text-align: center;
+    padding-top: 4%;
+    font-family: Impact;
+    color: darkslategrey;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 160px;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+
+/* table */
+
+div.table{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0px 0px 0px 0px;
+    align-items: middle;
+}
+
+button.tableDel{
+    height: 30px;
+    width: 50%;
+    background-color: transparent;
+    border: none;
+    margin: 0px 0px 0px 0px;
+}
+
+button.tableEdit{
+    height: 30px;
+    width: 50%;
+    background-color: transparent;
+    border: none;
+    margin: 0px 0px 0px 0px;
+}
+
+img.table{
+    height: 20px;
+    width: 20px;
+}
+
+th.table{
+    text-align: center;
+    vertical-align: middle;
+    max-width: 20% !important;
+    white-space: nowrap;
+    vertical-align: center;
+    color: darkslategrey;
+}
+
+td.table{
+    text-align: center;
+    vertical-align: middle;
+    max-width: 20% !important;
+    white-space: nowrap;
+    padding: 10px 10px 10px 10px;
+}
+
+/* modal new */
+
+div.new{
+    padding: 5% 10% 10% 10%;
+}
+
+div.newButtons{
+    display: flex;
+}
+
+button.newSave{
+    position: absolute;
+    width: 10%;
+    right: 6%;
+    bottom: 10%;
+    background-color: lightgreen;
+    border: 1px solid lightgray;
+}
+
+button.newCancel{
+    position: absolute;
+    width: 10%;
+    right: 18%;
+    bottom: 10%;
+    background-color: lightcoral;
+    border: 1px solid lightgray;
+}
+
+input.new{
+    margin: 0% 0% 5% 0%;
+    width: 100%;
+}
+
+p.new{
+    margin: 0% 0% 1% 0%;
+}
+
+div.newTitle{
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    font-family: Impact;
+    color: darkslategrey;
+}
+
+/* modal edit */
+
+p.del{
+    margin: 5% 5% 10% 5%;
+}
+
+button.delSave{
+    position: absolute;
+    width: 20%;
+    right: 5%;
+    bottom: 10%;
+    background-color: lightgreen;
+    border: 1px solid lightgray;
+}
+
+button.delCancel{
+    position: absolute;
+    width: 20%;
+    right: 27%;
+    bottom: 10%;
+    background-color: lightcoral;
+    border: 1px solid lightgray;
+}
