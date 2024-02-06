@@ -46,7 +46,7 @@ button.index{
   
 button.index:hover {
     background-color: #ecdc2e;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.2);
 }
 
 p.index{
@@ -85,10 +85,17 @@ button.tableEdit{
     margin: 0px 0px 0px 0px;
 }
 
+
 img.table{
     height: 20px;
     width: 20px;
     margin: 0px 0px 0px 0px;
+    transition: background-color 0.2s ease;
+}
+
+img.table:hover{
+    background-color: gray;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.2);
 }
 
 th.table{
