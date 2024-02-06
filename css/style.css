@@ -1,37 +1,52 @@
 /* index */
-body.index{
-    background-image: url(../images/index.jpg);
-}
 
-div.index{
-    right: 10%;
-    left: 10%;
-    bottom: 15%;
+div.indexRight{
+    right: 0;
+    top: 0;
+    bottom: 0;
     border: solid 1px lightgray;
     overflow: auto;
-    max-height: 400px;
-    min-height: 400px;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 50%;
+    max-width: 50%;
     position: absolute;
+}
+
+div.indexLeft{
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 50%;
+    max-width: 50%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    position: absolute;
+    background-image: url('../images/index.jpg');
+    background-size: cover;
 }
 
 button.index{
-    width: 5%;
-    bottom: 10%;
-    right: 10%;
-    position: absolute;
+    width: 10%;
     background-color: lightblue;
     border: 1px solid white !important;
+    cursor: pointer;
+    bottom: 5%;
+    right: 5%;
+    position: absolute;
 }
 
-header.index{
-    text-align: center;
-    padding-top: 4%;
+p.index{
+    position: absolute;
+}
+
+h1.index{
     font-family: Impact;
-    color: darkslategrey;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 160px;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(51, 51, 51, 0.5); 
 }
 
 /* table */
@@ -42,6 +57,7 @@ div.table{
     display: flex;
     margin: 0px 0px 0px 0px;
     align-items: middle;
+    background-color: white !important;
 }
 
 button.tableDel{

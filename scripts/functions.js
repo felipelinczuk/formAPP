@@ -1,5 +1,4 @@
 function handleSave(name, cpf, birthdate, monthlyincome, person){
-    console.log(person)
     if(person != "0") {
         editPerson(name, cpf, birthdate, monthlyincome, person);
     }
@@ -18,7 +17,6 @@ function getPeople(){
             var tableContent = `
                 <thead>
                     <tr>
-                        <th class="table">ID</th>
                         <th class="table">Name</th>
                         <th class="table">CPF</th>
                         <th class="table">BirthDate</th>
@@ -29,8 +27,7 @@ function getPeople(){
                 <tbody>`;
             for(var i=0; i < data.length; i++){
                 tableContent +=
-                    `<tr>
-                        <td class="table">` + data[i].id + `</td>
+                    `<tr person="`+ data[i].id + `">
                         <td class="table">` + data[i].name + `</td>
                         <td class="table">` + data[i].cpf + `</td>
                         <td class="table">` + data[i].birthDate + `</td>
@@ -117,14 +114,14 @@ function editButton(){
             var rows = table.getElementsByTagName('tr');
 
             for (var i = 1; i < rows.length; i++) { 
-                var cols = rows[i].getElementsByTagName('td');
-                var id = cols[0].innerText;
+                var id = rows[i].getAttribute('person');
 
                 if (id === person) {
-                    document.getElementById("txtName").value = cols[1].innerText;
-                    document.getElementById("txtCPF").value = cols[2].innerText;
-                    document.getElementById("txtBirthDate").value = cols[3].innerText;
-                    document.getElementById("txtMonthlyIncome").value = parseFloat(cols[4].innerText.replace(/[^\d,]/g, '').replace(',', '.')).toFixed(2);
+                    var cols = rows[i].getElementsByTagName('td');
+                    document.getElementById("txtName").value = cols[0].innerText;
+                    document.getElementById("txtCPF").value = cols[1].innerText;
+                    document.getElementById("txtBirthDate").value = cols[2].innerText;
+                    document.getElementById("txtMonthlyIncome").value = parseFloat(cols[3].innerText.replace(/[^\d,]/g, '').replace(',', '.')).toFixed(2);
                     break;
                 }
             }

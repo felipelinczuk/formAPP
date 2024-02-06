@@ -16,17 +16,14 @@
         <script src="../scripts/functions.js"></script>
     </head>
 
-    <body class="index" onload="getPeople()">
-        <header class="index">
-            <h1>Form: Natural Person</h1>
-        </header>
-        <div class="index">
-            <table id="table" class="table"></table>
-        </div>
-        <div>
+    <body onload="getPeople()">
+        <div class="indexLeft">
+            <p class="index"><h1 class="index">Form: Natural Person</h1></p>
             <button id="btnAdd" class="index" onclick="newButton()">New</button>
         </div>
-
+        <div class="indexRight">
+            <table id="table" class="table"></table>
+        </div>
         <div id="modalAdd" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
             aria-labelledby="myLargeModalLabel" aria-hidden="true" person="0">
             <div class="modal-dialog modal-lg">
@@ -34,7 +31,7 @@
                     <div class="newTitle">
                         <h6>Natural Person</h6>
                     </div>
-                    <form>
+                    <div class="newButtons">
                         <div class="new">
                             <label for="txtName">Name:</label><input type="text" class="new" id="txtName">
                             <label for="txtCPF">CPF: (123.456.789-00 or 12345678909)</label><input type="text" class="new" id="txtCPF">
@@ -46,7 +43,7 @@
                             <button class="newSave"
                                 onclick="handleSave(document.getElementById('txtName').value, document.getElementById('txtCPF').value, document.getElementById('txtBirthDate').value, document.getElementById('txtMonthlyIncome').value, document.getElementById('modalAdd').getAttribute('person'))">Save</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
