@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../images/index.png" type="image/x-icon">
         <title>Form</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -18,6 +19,7 @@
 
     <body onload="getPeople()">
         <div class="indexLeft">
+            <img class="index" src="../images/index.png">
             <p class="index"><h1 class="index">Form: Natural Person</h1></p>
             <button id="btnAdd" class="index" onclick="newButton()">New</button>
         </div>
@@ -33,10 +35,10 @@
                     </div>
                     <div class="newButtons">
                         <div class="new">
-                            <label for="txtName">Name:</label><input type="text" class="new" id="txtName">
-                            <label for="txtCPF">CPF: (123.456.789-00 or 12345678909)</label><input type="text" class="new" id="txtCPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                            <label for="txtBirthDate">BirthDate: (yyyy-mm-dd)</label> <input type="text" class="new" id="txtBirthDate">
-                            <label for="txtMonthlyIncome">Monthly income: (9999.99)</label><input type="text" class="new" id="txtMonthlyIncome">
+                            <label class="new" for="txtName">Name:</label><input type="text" class="new" id="txtName">
+                            <label class="new" for="txtCPF">CPF: (123.456.789-00 or 12345678909)</label><input type="text" class="new" id="txtCPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                            <label class="new" for="txtBirthDate">Birthdate: (yyyy-mm-dd)</label> <input type="text" class="new" id="txtBirthDate">
+                            <label class="new" for="txtMonthlyIncome">Monthly income: (9999.99)</label><input type="text" class="new" id="txtMonthlyIncome">
                         </div>
                         <div class="newButtons">
                             <button class="newCancel" data-bs-dismiss="modal">Cancel</button>

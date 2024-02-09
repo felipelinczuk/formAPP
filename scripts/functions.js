@@ -19,7 +19,7 @@ function getPeople(){
                     <tr>
                         <th class="table">Name</th>
                         <th class="table">CPF</th>
-                        <th class="table">BirthDate</th>
+                        <th class="table">Birthdate</th>
                         <th class="table">Monthly Income</th>
                         <th class="table">Action</th>
                     </tr>
