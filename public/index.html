@@ -36,9 +36,9 @@
                     <div class="newButtons">
                         <div class="new">
                             <label class="new" for="txtName">Name:</label><input type="text" class="new" id="txtName">
-                            <label class="new" for="txtCPF">CPF: (123.456.789-00 or 12345678909)</label><input type="text" class="new" id="txtCPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                            <label class="new" for="txtBirthDate">Birthdate: (yyyy-mm-dd)</label> <input type="text" class="new" id="txtBirthDate">
-                            <label class="new" for="txtMonthlyIncome">Monthly income: (9999.99)</label><input type="text" class="new" id="txtMonthlyIncome">
+                            <label class="new" for="txtCPF">CPF: (123.456.789-00)</label><input type="text" class="new" id="txtCPF" oninput="cpfMask(this)">
+                            <label class="new" for="txtBirthDate">Birthdate: (yyyy/mm/dd)</label> <input type="text" oninput="birthMask(this)" class="new" id="txtBirthDate">
+                            <label class="new" for="txtMonthlyIncome">Monthly income: (US$)</label><input type="text" oninput="moneyMask(this)" class="new" id="txtMonthlyIncome">
                         </div>
                         <div class="newButtons">
                             <button class="newCancel" data-bs-dismiss="modal">Cancel</button>

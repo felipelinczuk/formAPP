@@ -30,7 +30,7 @@ function getPeople(){
                     `<tr person="`+ data[i].id + `">
                         <td class="table">` + data[i].name + `</td>
                         <td class="table">` + data[i].cpf + `</td>
-                        <td class="table">` + data[i].birthDate + `</td>
+                        <td class="table">` + data[i].birthDate.replace(/\-/g, '/') + `</td>
                         <td class="table">` + data[i].monthlyIncome.toLocaleString('pt-BR', { style: 'currency', currency: 'USD'}) + `</td>
                         <td>
                             <div class="table">
@@ -50,7 +50,7 @@ function getPeople(){
         },
         error: function(err) {
             console.log(err.message);
-            alert('Error!');
+            alert('Server error!');
         }
     });
 }
@@ -61,10 +61,10 @@ function newPerson(name, cpf, birthdate, monthlyincome){
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            name: name,
+            name: name == ""? null : name,
             cpf: cpf,
-            birthDate: birthdate,
-            monthlyIncome: monthlyincome
+            birthDate: birthdate.replace(/\//g, '-'),
+            monthlyIncome: monthlyincome.replace(/\./g, '').replace(/\,/g, '.')
 
         }),
         success: function() {
@@ -73,7 +73,7 @@ function newPerson(name, cpf, birthdate, monthlyincome){
         },
         error: function(err) {
             console.log(err.message);
-            alert('Error!');
+            alert('Check the fields and try again!');
         }
     });
 }
@@ -84,10 +84,10 @@ function editPerson(name, cpf, birthdate, monthlyincome, id){
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify({
-            name: name,
+            name: name == ""? null : name,
             cpf: cpf,
-            birthDate: birthdate,
-            monthlyIncome: monthlyincome
+            birthDate: birthdate.replace(/\//g, '-'),
+            monthlyIncome: monthlyincome.replace(/\./g, '').replace(/\,/g, '.')
 
         }),
         success: function() {
@@ -96,7 +96,7 @@ function editPerson(name, cpf, birthdate, monthlyincome, id){
         },
         error: function(err) {
             console.log(err.message);
-            alert('Error!');
+            alert('Check the fields and try again!');
         }
     });
 }
@@ -121,7 +121,7 @@ function editButton(){
                     document.getElementById("txtName").value = cols[0].innerText;
                     document.getElementById("txtCPF").value = cols[1].innerText;
                     document.getElementById("txtBirthDate").value = cols[2].innerText;
-                    document.getElementById("txtMonthlyIncome").value = parseFloat(cols[3].innerText.replace(/[^\d,]/g, '').replace(',', '.')).toFixed(2);
+                    document.getElementById("txtMonthlyIncome").value = cols[3].innerText.replace(/[^\d,]/g, '').replace(/(\d{1,})(\d{2})$/, '$1,$2').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
                     break;
                 }
             }
@@ -140,7 +140,7 @@ function delPerson(id){
         },
         error: function(err) {
             console.log(err.message);
-            alert('Error!');
+            alert('Server error!');
         }
     });
 }
@@ -165,4 +165,27 @@ function newButton(){
     document.getElementById('txtMonthlyIncome').value = "";
     document.getElementById('modalAdd').setAttribute('person', "0");
     modal.show();
+}
+
+function cpfMask(elem){
+    elem.value = elem.value.replace(/\D/g, '');
+
+    if(elem.value.length == 11){
+        elem.value = elem.value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+    }
+}
+
+function birthMask(elem){
+    elem.value = elem.value.replace(/\D/g, '');
+
+    if(elem.value.length == 8){
+        elem.value = elem.value.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1/$2/$3");
+    }
+}
+
+function moneyMask(elem){
+    elem.value = elem.value.replace(/\D/g, '');
+    
+    elem.value = elem.value.replace(/(\d{1,})(\d{2})$/, '$1,$2');
+    elem.value = elem.value.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 }
