@@ -22,6 +22,8 @@
             <img class="index" src="./images/index.png">
             <p class="index"><h1 class="index">Form: Natural Person</h1></p>
             <button id="btnAdd" class="index" onclick="newButton()">New</button>
+            <input type="text" id="barCPF" class="index" placeholder="CPF" oninput="barSearch(this)">
+            <button class="search" onclick="searchPerson()"></button>
         </div>
         <div class="indexRight">
             <table id="table" class="table"></table>
