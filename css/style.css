@@ -141,7 +141,7 @@ label.new{
 }
 
 div.new{
-    padding: 5% 10% 10% 10%;
+    padding: 5% 10% 5% 10%;
     margin-bottom: 6%;
 }
 
@@ -186,8 +186,13 @@ button.newCancel:hover {
 }
 
 input.new{
+    border-radius: 5px;
     margin: 0% 0% 5% 0%;
     width: 100%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
 }
 
 div.newTitle{
@@ -198,7 +203,7 @@ div.newTitle{
     color: darkslategrey;
 }
 
-/* modal edit */
+/* modal del */
 
 p.del{
     margin: 5% 5% 10% 5%;
