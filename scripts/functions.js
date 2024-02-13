@@ -200,49 +200,55 @@ function barSearch(elem){
 
 function searchPerson(){
     id = document.getElementById("barCPF").value;
-    $.ajax({
-        url: 'http://localhost:5001/api/person/find/C/' + id,
-        type: 'GET',
-        dataType: 'json',
-        success: function(json){
-            var data = [json.data];
-            var tableContent = `
-                <thead>
-                    <tr>
-                        <th class="table">Name</th>
-                        <th class="table">CPF</th>
-                        <th class="table">Birthdate</th>
-                        <th class="table">Monthly Income</th>
-                        <th class="table">Action</th>
-                    </tr>
-                </thead>
-                <tbody>`;
-            for(var i=0; i < data.length; i++){
-                tableContent +=
-                    `<tr person="`+ data[i].id + `">
-                        <td class="table">` + data[i].name + `</td>
-                        <td class="table">` + data[i].cpf + `</td>
-                        <td class="table">` + data[i].birthDate.replace(/\-/g, '/') + `</td>
-                        <td class="table">` + data[i].monthlyIncome.toLocaleString('pt-BR', { style: 'currency', currency: 'USD'}) + `</td>
-                        <td>
-                            <div class="table">
-                                <button class="tableEdit" person="` + data[i].id + `"><img class="table" src="./images/edit.png"></button>
-                                <button class="tableDel" person="` + data[i].id + `"><img class="table" src="./images/del.png"></button>
-                            </div>
-                        </td>
-                    </tr>`;
-            }
-            tableContent += `
-                </tbody>
-                </thead>`;
 
-            document.getElementById("table").innerHTML = tableContent;
-            editButton();
-            delButton();
-        },
-        error: function(err) {
-            console.log(err.message);
-            alert('Person not found!');
-        }
-    });
+    if(id != ""){
+        $.ajax({
+            url: 'http://localhost:5001/api/person/find/C/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(json){
+                var data = [json.data];
+                var tableContent = `
+                    <thead>
+                        <tr>
+                            <th class="table">Name</th>
+                            <th class="table">CPF</th>
+                            <th class="table">Birthdate</th>
+                            <th class="table">Monthly Income</th>
+                            <th class="table">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+                for(var i=0; i < data.length; i++){
+                    tableContent +=
+                        `<tr person="`+ data[i].id + `">
+                            <td class="table">` + data[i].name + `</td>
+                            <td class="table">` + data[i].cpf + `</td>
+                            <td class="table">` + data[i].birthDate.replace(/\-/g, '/') + `</td>
+                            <td class="table">` + data[i].monthlyIncome.toLocaleString('pt-BR', { style: 'currency', currency: 'USD'}) + `</td>
+                            <td>
+                                <div class="table">
+                                    <button class="tableEdit" person="` + data[i].id + `"><img class="table" src="./images/edit.png"></button>
+                                    <button class="tableDel" person="` + data[i].id + `"><img class="table" src="./images/del.png"></button>
+                                </div>
+                            </td>
+                        </tr>`;
+                }
+                tableContent += `
+                    </tbody>
+                    </thead>`;
+    
+                document.getElementById("table").innerHTML = tableContent;
+                editButton();
+                delButton();
+            },
+            error: function(err) {
+                console.log(err.message);
+                alert('Person not found!');
+            }
+        });
+    }
+    else{
+        getPeople();
+    }  
 }
