@@ -90,6 +90,18 @@ input.index{
     border-radius: 5px;
 }
 
+img.gif{
+    position: absolute;
+    bottom: 50%;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    height: 10%;
+    width: 10%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
 /* table */
 
 div.table{

@@ -8,6 +8,9 @@ function handleSave(name, cpf, birthdate, monthlyincome, person){
 }
 
 function getPeople(){
+    loading = document.getElementById("loading");
+    loading.style.display = "block";
+
     $.ajax({
         url: 'http://localhost:5001/api/person',
         type: 'GET',
@@ -47,8 +50,10 @@ function getPeople(){
             document.getElementById("table").innerHTML = tableContent;
             editButton();
             delButton();
+            loading.style.display = "none";
         },
         error: function(err) {
+            loading.style.display = "none";
             console.log(err.message);
             alert('Server error!');
         }
@@ -199,6 +204,9 @@ function barSearch(elem){
 }
 
 function searchPerson(){
+    loading = document.getElementById("loading");
+    loading.style.display = "block";
+
     id = document.getElementById("barCPF").value;
 
     if(id != ""){
@@ -241,8 +249,10 @@ function searchPerson(){
                 document.getElementById("table").innerHTML = tableContent;
                 editButton();
                 delButton();
+                loading.style.display = "none";
             },
             error: function(err) {
+                loading.style.display = "none";
                 console.log(err.message);
                 alert('Person not found!');
             }
