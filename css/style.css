@@ -77,6 +77,7 @@ button.search{
     cursor: pointer;
     opacity: 0.7;
     left: 46.5%;
+    border-radius: 5px;
 }
 
 input.index{
@@ -120,14 +121,14 @@ button.tableDel{
     border: none;
     margin: 0px 0px 0px 0px;
     transition: background-color 0.1s ease;
-    border-radius: 50%;
+    border-radius: 5px;
     padding: 0%;
 }
 
 button.tableDel:hover{
     background-color: lightcoral;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
+    border-radius: 5px;
 }
 
 button.tableEdit{
@@ -137,14 +138,14 @@ button.tableEdit{
     border: none;
     margin: 0px 10px 0px 0px;
     transition: background-color 0.1s ease;
-    border-radius: 50%;
+    border-radius: 5px;
     padding: 0%;
 }
 
 button.tableEdit:hover{
     background-color: #ecdc2e;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
+    border-radius: 5px;
 }
 
 
